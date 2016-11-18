@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jack.self.mapper.second.TBillMapper">
+    <resultMap id="BaseResultMap" type="com.jack.self.model.second.TBill">
+        <id column="bill_id" property="billId" jdbcType="BIGINT"/>
+        <result column="bill_type" property="billType" jdbcType="SMALLINT"/>
+        <result column="patient_name" property="encryptName" jdbcType="VARBINARY"/>
+        <result column="identity_number" property="encryptId" jdbcType="VARBINARY"/>
+        <result column="hospital_id" property="hospitalId" jdbcType="INTEGER"/>
+        <result column="hospitalization_no" property="hospitalizationNo" jdbcType="CHAR"/>
+        <result column="hospitalization_times" property="hospitalizationTimes" jdbcType="INTEGER"/>
+        <result column="visit_date" property="visitDate" jdbcType="TIMESTAMP"/>
+        <result column="receipt_No" property="receiptNo" jdbcType="VARCHAR"/>
+        <result column="yard_Name" property="yardName" jdbcType="VARCHAR"/>
+        <result column="medicine_Take_Flag" property="medicineTakeFlag" jdbcType="BIT"/>
+        <result column="order_Amount" property="orderAmount" jdbcType="DECIMAL"/>
+        <result column="ms_Type" property="msType" jdbcType="SMALLINT"/>
+        <result column="invoice_No" property="invoiceNo" jdbcType="VARCHAR"/>
+        <result column="invoice_Type" property="invoiceType" jdbcType="VARCHAR"/>
+        <result column="admission_Time" property="admissionTime" jdbcType="TIMESTAMP"/>
+        <result column="insure_Type" property="insurType" jdbcType="VARCHAR"/>
+        <result column="insure_Pay" property="insurPay" jdbcType="DECIMAL"/>
+        <result column="account_Pay" property="accountPay" jdbcType="DECIMAL"/>
+        <result column="self_Pay" property="selfPay" jdbcType="DECIMAL"/>
+        <result column="insure_Self_Pay" property="insurSelfPay" jdbcType="DECIMAL"/>
+        <result column="class_Self_Pay" property="classSelfPay" jdbcType="DECIMAL"/>
+        <result column="other_Pay" property="otherPay" jdbcType="DECIMAL"/>
+        <result column="insure_Rcpt_No" property="insurRcptNo" jdbcType="VARCHAR"/>
+        <result column="pay_Date" property="payDate" jdbcType="TIMESTAMP"/>
+        <result column="visit_No" property="visitNo" jdbcType="VARCHAR"/>
+        <result column="pay_Channel" property="payChannel" jdbcType="SMALLINT"/>
+        <result column="cost_Category" property="costCategory" jdbcType="VARCHAR"/>
+        <result column="total_Pay" property="totaPay" jdbcType="DECIMAL"/>
+        <result column="discharge_Time" property="dischargeTime" jdbcType="TIMESTAMP"/>
+        <result column="settle_Time" property="settleTime" jdbcType="TIMESTAMP"/>
+        <result column="dept_Name" property="deptName" jdbcType="VARCHAR"/>
+        <result column="doctor_Name" property="doctorName" jdbcType="VARCHAR"/>
+        <result column="prepayments" property="prepayments" jdbcType="DECIMAL"/>
+        <result column="bed_No" property="bedNo" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    min(bill_id) as bill_id, bill_type, patient_name, identity_number, hospital_id, hospitalization_no,
+    hospitalization_times, visit_date, receipt_No, yard_Name, medicine_Take_Flag, order_Amount,
+    ms_Type, invoice_No, invoice_Type, admission_Time, insure_Type, insure_Pay, account_Pay,
+    self_Pay, insure_Self_Pay, class_Self_Pay, other_Pay, insure_Rcpt_No, pay_Date, visit_No,
+    pay_Channel, cost_Category, total_Pay, discharge_Time, settle_Time, dept_Name, doctor_Name,
+    prepayments, bed_No
+  </sql>
+    <insert id="insertSelective" parameterType="map">
+        insert into t_bill
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="tBill.billId != null">
+                bill_id,
+            </if>
+            <if test="tBill.billType != null">
+                bill_type,
+            </if>
+            <if test="tBill.patientName != null">
+                patient_name,
+            </if>
+            <if test="tBill.identityNumber != null">
+                identity_number,
+            </if>
+            <if test="tBill.hospitalId != null">
+                hospital_id,
+            </if>
+            <if test="tBill.hospitalizationNo != null">
+                hospitalization_no,
+            </if>
+            <if test="tBill.hospitalizationTimes != null">
+                hospitalization_times,
+            </if>
+            <if test="tBill.visitDate != null">
+                visit_date,
+            </if>
+            <if test="tBill.receiptNo != null">
+                receipt_No,
+            </if>
+            <if test="tBill.yardName != null">
+                yard_Name,
+            </if>
+            <if test="tBill.medicineTakeFlag != null">
+                medicine_Take_Flag,
+            </if>
+            <if test="tBill.orderAmount != null">
+                order_Amount,
+            </if>
+            <if test="tBill.msType != null">
+                ms_Type,
+            </if>
+            <if test="tBill.invoiceNo != null">
+                invoice_No,
+            </if>
+            <if test="tBill.invoiceType != null">
+                invoice_Type,
+            </if>
+            <if test="tBill.admissionTime != null">
+                admission_Time,
+            </if>
+            <if test="tBill.insurType != null">
+                insure_Type,
+            </if>
+            <if test="tBill.insurPay != null">
+                insure_Pay,
+            </if>
+            <if test="tBill.accountPay != null">
+                account_Pay,
+            </if>
+            <if test="tBill.selfPay != null">
+                self_Pay,
+            </if>
+            <if test="tBill.insurSelfPay != null">
+                insure_Self_Pay,
+            </if>
+            <if test="tBill.classSelfPay != null">
+                class_Self_Pay,
+            </if>
+            <if test="tBill.otherPay != null">
+                other_Pay,
+            </if>
+            <if test="tBill.insurRcptNo != null">
+                insure_Rcpt_No,
+            </if>
+            <if test="tBill.payDate != null">
+                pay_Date,
+            </if>
+            <if test="tBill.visitNo != null">
+                visit_No,
+            </if>
+            <if test="tBill.payChannel != null">
+                pay_Channel,
+            </if>
+            <if test="tBill.costCategory != null">
+                cost_Category,
+            </if>
+            <if test="tBill.totaPay != null">
+                total_Pay,
+            </if>
+            <if test="tBill.dischargeTime != null">
+                discharge_Time,
+            </if>
+            <if test="tBill.settleTime != null">
+                settle_Time,
+            </if>
+            <if test="tBill.deptName != null">
+                dept_Name,
+            </if>
+            <if test="tBill.doctorName != null">
+                doctor_Name,
+            </if>
+            <if test="tBill.prepayments != null">
+                prepayments,
+            </if>
+            <if test="tBill.bedNo != null">
+                bed_No,
+            </if>
+            <if test="tBill.identityNumberPart != null">
+                identity_number_part,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="tBill.billId != null">
+                #{tBill.billId,jdbcType=BIGINT},
+            </if>
+            <if test="tBill.billType != null">
+                #{tBill.billType,jdbcType=SMALLINT},
+            </if>
+            <if test="tBill.patientName != null">
+                AES_ENCRYPT(#{tBill.patientName},#{aesKey}),
+            </if>
+            <if test="tBill.identityNumber != null">
+                AES_ENCRYPT(#{tBill.identityNumber},#{aesKey}),
+            </if>
+            <if test="tBill.hospitalId != null">
+                #{tBill.hospitalId,jdbcType=INTEGER},
+            </if>
+            <if test="tBill.hospitalizationNo != null">
+                #{tBill.hospitalizationNo,jdbcType=CHAR},
+            </if>
+            <if test="tBill.hospitalizationTimes != null">
+                #{tBill.hospitalizationTimes,jdbcType=INTEGER},
+            </if>
+            <if test="tBill.visitDate != null">
+                #{tBill.visitDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="tBill.receiptNo != null">
+                #{tBill.receiptNo,jdbcType=VARCHAR},
+            </if>
+            <if test="tBill.yardName != null">
+                #{tBill.yardName,jdbcType=VARCHAR},
+            </if>
+            <if test="tBill.medicineTakeFlag != null">
+                #{tBill.medicineTakeFlag,jdbcType=BIT},
+            </if>
+            <if test="tBill.orderAmount != null">
+                #{tBill.orderAmount,jdbcType=DECIMAL},
+            </if>
+            <if test="tBill.msType != null">
+                #{tBill.msType,jdbcType=SMALLINT},
+            </if>
+            <if test="tBill.invoiceNo != null">
+                #{tBill.invoiceNo,jdbcType=VARCHAR},
+            </if>
+            <if test="tBill.invoiceType != null">
+                #{tBill.invoiceType,jdbcType=VARCHAR},
+            </if>
+            <if test="tBill.admissionTime != null">
+                #{tBill.admissionTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="tBill.insurType != null">
+                #{tBill.insurType,jdbcType=VARCHAR},
+            </if>
+            <if test="tBill.insurPay != null">
+                #{tBill.insurPay,jdbcType=DECIMAL},
+            </if>
+            <if test="tBill.accountPay != null">
+                #{tBill.accountPay,jdbcType=DECIMAL},
+            </if>
+            <if test="tBill.selfPay != null">
+                #{tBill.selfPay,jdbcType=DECIMAL},
+            </if>
+            <if test="tBill.insurSelfPay != null">
+                #{tBill.insurSelfPay,jdbcType=DECIMAL},
+            </if>
+            <if test="tBill.classSelfPay != null">
+                #{tBill.classSelfPay,jdbcType=DECIMAL},
+            </if>
+            <if test="tBill.otherPay != null">
+                #{tBill.otherPay,jdbcType=DECIMAL},
+            </if>
+            <if test="tBill.insurRcptNo != null">
+                #{tBill.insurRcptNo,jdbcType=VARCHAR},
+            </if>
+            <if test="tBill.payDate != null">
+                #{tBill.payDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="tBill.visitNo != null">
+                #{tBill.visitNo,jdbcType=VARCHAR},
+            </if>
+            <if test="tBill.payChannel != null">
+                #{tBill.payChannel,jdbcType=SMALLINT},
+            </if>
+            <if test="tBill.costCategory != null">
+                #{tBill.costCategory,jdbcType=VARCHAR},
+            </if>
+            <if test="tBill.totaPay != null">
+                #{tBill.totaPay,jdbcType=DECIMAL},
+            </if>
+            <if test="tBill.dischargeTime != null">
+                #{tBill.dischargeTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="tBill.settleTime != null">
+                #{tBill.settleTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="tBill.deptName != null">
+                #{tBill.deptName,jdbcType=VARCHAR},
+            </if>
+            <if test="tBill.doctorName != null">
+                #{tBill.doctorName,jdbcType=VARCHAR},
+            </if>
+            <if test="tBill.prepayments != null">
+                #{tBill.prepayments,jdbcType=DECIMAL},
+            </if>
+            <if test="tBill.bedNo != null">
+                #{tBill.bedNo,jdbcType=VARCHAR},
+            </if>
+            <if test="tBill.identityNumberPart != null">
+                #{tBill.identityNumberPart,jdbcType=INTEGER},
+            </if>
+        </trim>
+
+        <selectKey resultType="long" order="AFTER" keyProperty="tBill.billId">
+            SELECT LAST_INSERT_ID() as billId
+        </selectKey>
+    </insert>
+
+    <select id="selectBillsByHosNo" parameterType="map" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        FROM
+        t_bill
+        where
+        hospitalization_no in
+        <foreach item="item" index="index" collection="hospitalization_no" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+        and bill_type in
+        <foreach item="item" index="index" collection="billType" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+        and hospital_id = #{hospitalId}
+        and admission_Time &gt;= #{startDate} and admission_Time &lt; #{endDate}
+    </select>
+
+    <select id="selectBillsByDates" parameterType="map" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        FROM
+        t_bill
+        where identity_number_part in
+        <foreach item="item" index="index" collection="identityNumber" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+        and bill_type in
+        <foreach item="item" index="index" collection="billType" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+        and hospital_id = #{hospitalId}
+        and admission_Time REGEXP #{dateRegExp}
+    </select>
+
+    <select id="selectBillsByDateRange" parameterType="map" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        FROM
+        t_bill
+        where identity_number_part in
+        <foreach item="item" index="index" collection="identityNumber" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+        and bill_type in
+        <foreach item="item" index="index" collection="billType" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+        and hospital_id = #{hospitalId}
+        and admission_Time &gt;= #{startDate} and admission_Time &lt; #{endDate}
+    </select>
+</mapper>

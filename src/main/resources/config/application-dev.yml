@@ -1,0 +1,18 @@
+acceptanceConnect:
+  driver-class-name: com.mysql.jdbc.Driver
+  url: ENC(XD/bKPsHCriXbHtCuu3EAEYFrTs897WviK6ED1b3fr43BLEsh8GDWX5oPoolpjRN)
+  username: ENC(f5KrAtQIy5hVr994tzANqQ==)
+  password: ENC(WsembhXaHxWdmqshBn3b+Q==)
+secondConnect:
+  driver-class-name: com.mysql.jdbc.Driver
+  url: ENC(VmLBmnZt4Cofwf3BcmVDI7ZfrazLiL6CRXASG4do1M7t0rwrQCnJXv5W5TjS6tAwmASSyvHtPmQ=)
+  username: ENC(f5KrAtQIy5hVr994tzANqQ==)
+  password: ENC(WsembhXaHxWdmqshBn3b+Q==)
+logging:
+  level:
+    com.jack.self: INFO
+    root: INFO
+jasypt:
+  encryptor:
+     bean: encryptorBean
+     password: ${JASYPT_ENCRYPTOR_PASSWORD:}

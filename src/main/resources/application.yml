@@ -1,0 +1,12 @@
+server:
+  port: 8080
+spring:
+  profiles:
+    active: dev
+  freemarker:
+    cache: false
+    charset: UTF-8
+    content-type: text/html
+    check-template-location: true
+logging:
+  config: classpath:logback.xml
