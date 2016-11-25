@@ -41,8 +41,8 @@ public class Encript {
     }
 
     public static void main(String[] args) {
-        String str = stringEncryptor().encrypt("jdbc:mysql://insurancetest1.mysql.rds.aliyuncs.com:3306/insurance_link?autoReconnect=true&useUnicode=true&characterEncoding=utf8&useSSL=false");
-        String str1 = stringEncryptor().decrypt("FHQIpbK0S2NJNQSnQwcGmg3jt5lyX2nj");
+        String str = stringEncryptor().encrypt("");
+        String str1 = stringEncryptor().decrypt("");
         System.out.println(str);
         System.out.println(str1);
     }
